@@ -1,4 +1,4 @@
-import knex from "knex";
+const knex = require("knex");
 
 const postgres = knex({
   client: "postgres",
@@ -10,10 +10,10 @@ const postgres = knex({
   }
 });
 [
-  postgres.raw("DROP DATABASE IF EXISTS testing1"),
+  // postgres.raw("DROP DATABASE IF EXISTS testing2"),
   // postgres.raw('DROP USER IF EXISTS av'),
   // postgres.raw('CREATE USER objection SUPERUSER'),
-  postgres.raw("CREATE DATABASE testing2")
+  postgres.raw("CREATE DATABASE test")
 ]
   .reduce((promise, query) => {
     return promise.then(() => query);

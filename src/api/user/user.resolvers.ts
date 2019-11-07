@@ -1,13 +1,13 @@
-const user = async (_, args, { prisma }) => {
-  return await prisma.user({ id: args.id });
+const user = async (_, args, {}) => {
+  // return await prisma.user({ id: args.id });
 };
 
-const users = async (_, args, { prisma }) => {
-  return await prisma.users();
+const users = async (_, args, {}) => {
+  // return await prisma.users();
 };
 
-const newUser = async (_, args, { prisma }) => {
-  return await prisma.createUser({ name: args.data.name });
+const newUser = async (_, args, {}) => {
+  // return await prisma.createUser({ name: args.data.name });
 };
 
 export default {

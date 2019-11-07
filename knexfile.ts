@@ -2,23 +2,19 @@
 
 module.exports = {
   development: {
-    client: "postgresql",
+    client: "postgres",
     connection: {
-      database: "testing2",
+      database: "test",
       user: "AV",
       password: "Password"
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
     migrations: {
+      extension: "ts",
       tableName: "knex_migrations"
     }
   },
-
   staging: {
-    client: "postgresql",
+    client: "postgres",
     connection: {
       database: "testing2",
       user: "AV",
@@ -29,12 +25,13 @@ module.exports = {
       max: 10
     },
     migrations: {
+      extension: "ts",
       tableName: "knex_migrations"
     }
   },
 
   production: {
-    client: "postgresql",
+    client: "postgres",
     connection: {
       database: "testing2",
       user: "AV",
@@ -45,6 +42,7 @@ module.exports = {
       max: 10
     },
     migrations: {
+      extension: "ts",
       tableName: "knex_migrations"
     }
   }
