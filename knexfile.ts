@@ -1,16 +1,11 @@
-// Update with your config settings.
-
 module.exports = {
   development: {
     client: "postgres",
     connection: {
-      database: "test",
       user: "AV",
-      password: "Password"
-    },
-    migrations: {
-      extension: "ts",
-      tableName: "knex_migrations"
+      host: "0.0.0.0",
+      password: "Password",
+      database: "test"
     }
   },
   staging: {

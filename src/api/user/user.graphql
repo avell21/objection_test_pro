@@ -1,17 +1,26 @@
 type Query {
-  user(id: ID!): User
-  users: [User!]!
+  user(id: Int!): User
+  users: [User]
 }
 
 type Mutation {
-  newUser(data: CreateUserInput): User
+  createUser(data: CreateUserInput): User
+  updateUser(data: UpdateUserInput, id: Int!): String
+  deleteUser(id: Int!): String
 }
 
 type User {
   id: ID!
-  name: String!
+  firstName: String!
+  lastName: String!
 }
 
 input CreateUserInput {
-  name: String!
+  firstName: String!
+  lastName: String!
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
 }
