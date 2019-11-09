@@ -1,5 +1,5 @@
 import { Model } from "objection";
-
+import { Blog } from "../blog/blogModel";
 export class User extends Model {
   static get tableName() {
     return "users";
@@ -17,6 +17,18 @@ export class User extends Model {
         id: { type: "integer" },
         firstName: { type: "string", minLength: 1, maxLength: 255 },
         lastName: { type: "string", minLength: 1, maxLength: 255 }
+      }
+    };
+  }
+  static get relationMappings() {
+    return {
+      blog: {
+        relation: Model.HasManyRelation,
+        modelClass: Blog,
+        join: {
+          from: "users.id",
+          to: "blogs.userId"
+        }
       }
     };
   }

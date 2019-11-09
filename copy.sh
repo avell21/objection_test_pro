@@ -5,3 +5,5 @@ cd src/api
 cp schema.graphql ../../dist/src/api
 
 cp user/user.graphql ../../dist/src/api/user
+
+cp blog/blog.graphql ../../dist/src/api/blog

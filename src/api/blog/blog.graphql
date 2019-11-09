@@ -1,0 +1,27 @@
+type Query {
+  blog(id: Int!): Blog
+  blogs: [Blog]
+}
+
+type Mutation {
+  createBlog(data: CreateBlogInput): Blog
+  updateBlog(data: UpdateBlogInput, id: Int!): String
+  deleteBlog(id: Int!): String
+}
+
+type Blog {
+  id: ID!
+  userId: ID!
+  blog: String!
+  user:User
+}
+
+input CreateBlogInput {
+  userId: Int!
+  blog: String!
+}
+
+input UpdateBlogInput {
+  userId: Int
+  blog: String
+}

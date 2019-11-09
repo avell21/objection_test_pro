@@ -13,6 +13,7 @@ type User {
   id: ID!
   firstName: String!
   lastName: String!
+  blog: [Blog]
 }
 
 input CreateUserInput {
