@@ -1,0 +1,29 @@
+type Query {
+  application(id: ID!): Application
+  applications: [Application]
+}
+
+type Mutation {
+  createApplication(data: CreateApplicationInput): Application
+  updateApplication(data: UpdateApplicationInput, id: ID!): Application
+  deleteApplication(id: ID!): String
+}
+
+type Application {
+  id: ID!
+  broker: ID
+  brokers: Broker
+  email: String!
+  createdAt: String
+  updatedAt: String
+}
+
+input CreateApplicationInput {
+  broker: ID!
+  email: String!
+}
+
+input UpdateApplicationInput {
+  broker: ID
+  email: String
+}

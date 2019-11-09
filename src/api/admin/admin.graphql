@@ -1,0 +1,38 @@
+type Query {
+  admin(id: ID!): Admin
+  admins: [Admin]
+}
+
+type Mutation {
+  createAdmin(data: CreateAdminInput): Admin
+  updateAdmin(data: UpdateAdminInput, id: ID!): Admin
+  updateManyAdmin(data: UpdateAdminInput, id: ID!): Admin
+  deleteAdmin(id: ID!): String
+}
+
+type Admin {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  avatar: String!
+  email: String!
+  phoneNumber: String!
+  createdAt: String
+  updatedAt: String
+}
+
+input CreateAdminInput {
+  firstName: String!
+  lastName: String!
+  phoneNumber: String!
+  avatar: String!
+  email: String!
+}
+
+input UpdateAdminInput {
+  firstName: String
+  lastName: String
+  phoneNumber: String
+  avatar: String
+  email: String
+}

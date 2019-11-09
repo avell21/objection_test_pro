@@ -1,0 +1,38 @@
+type Query {
+  broker(id: ID!): Broker
+  brokers: [Broker]
+}
+
+type Mutation {
+  createBroker(data: CreateBrokerInput): Broker
+  updateBroker(data: UpdateBrokerInput, id: ID!): Broker
+  deleteBroker(id: ID!): String
+}
+
+type Broker {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  avatar: String!
+  email: String!
+  phoneNumber: String!
+  applications: [Application]
+  createdAt: String
+  updatedAt: String
+}
+
+input CreateBrokerInput {
+  firstName: String!
+  lastName: String!
+  phoneNumber: String!
+  avatar: String!
+  email: String!
+}
+
+input UpdateBrokerInput {
+  firstName: String
+  lastName: String
+  phoneNumber: String
+  avatar: String
+  email: String
+}

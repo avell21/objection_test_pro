@@ -1,23 +1,27 @@
 import { importSchema } from "graphql-import";
-import user from "./user/user.resolvers";
-import { User } from "./user/userModel";
-import blog from "./blog/blog.resolvers";
-import { Blog } from "./blog/blogModel";
+import { Admin } from "./admin/adminModel";
+import admin from "./admin/admin.resolvers";
+import { Broker } from "./broker/brokerModel";
+import broker from "./broker/broker.resolvers";
+import { Application } from "./application/applicationModel";
+import application from "./application/application.resolvers";
 
 const model = {
-  User,
-  Blog
+  Admin,
+  Broker,
+  Application
 };
 const resolvers = {
   Query: {
-    ...user.Query,
-    ...blog.Query
+    ...admin.Query,
+    ...broker.Query,
+    ...application.Query
   },
   Mutation: {
-    ...user.Mutation,
-    ...blog.Mutation
-  },
-  User: {}
+    ...admin.Mutation,
+    ...broker.Mutation,
+    ...application.Mutation
+  }
 };
 
 const typeDefs = importSchema(`${__dirname}/schema.graphql`);
