@@ -1,5 +1,6 @@
 import { importSchema } from "graphql-import";
 import user from "./user/user.resolvers";
+import { User } from "./user/userModel";
 
 const resolvers = {
   Query: {
@@ -16,5 +17,7 @@ const typeDefs = importSchema(`${__dirname}/schema.graphql`);
 export default {
   typeDefs,
   resolvers,
-  context: {}
+  context: {
+    User
+  }
 };

@@ -1,9 +1,4 @@
-const { Model } = require("objection");
-const Knex = require("knex");
-const connection = require("../../../knexfile");
-const env = process.env.NODE_ENV || "development";
-const knexConnection = Knex(connection[env]);
-Model.knex(knexConnection);
+import { Model } from "objection";
 
 export class User extends Model {
   static get tableName() {
@@ -20,8 +15,7 @@ export class User extends Model {
       required: ["firstName", "lastName"],
       properties: {
         id: { type: "integer" },
-        parentId: { type: ["integer", "null"] },
-        firstName: { type: "string", minLength: 10, maxLength: 255 },
+        firstName: { type: "string", minLength: 1, maxLength: 255 },
         lastName: { type: "string", minLength: 1, maxLength: 255 }
       }
     };

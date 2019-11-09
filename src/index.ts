@@ -3,6 +3,12 @@
 import express = require("express");
 import { ApolloServer } from "apollo-server-express";
 import api from "./api";
+import { Model } from "objection";
+import Knex from "knex";
+const connection = require("../knexfile");
+const env = process.env.NODE_ENV || "development";
+const knexConnection = Knex(connection[env]);
+Model.knex(knexConnection);
 
 const app: express.Application = express();
 
